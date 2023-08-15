@@ -10,6 +10,13 @@ app.disable("x-powered-by");
 var fs = require("fs");
 var path = require("path");
 
+
+
+app.use(helmet());
+
+// Use helmet.hidePoweredBy() middleware to hide X-Powered-By header
+app.use(helmet.hidePoweredBy());
+
 app.use(function (req, res, next) {
   res.set({
     "Access-Control-Allow-Origin": "*",
